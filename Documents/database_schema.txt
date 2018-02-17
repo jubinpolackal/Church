@@ -1,0 +1,9 @@
+
+Create and insert values into users table
+=========================================
+create table users (id int auto_increment, firstName varchar(100), lastName varchar(100), userName varchar(100), password varchar(100), email varchar(100), phone varchar(13), primary key(id));
+
+
+MariaDB [church]> insert into users (firstName, lastName, userName, password, email, phone) values('Admin', 'Admin', 'admin', 'admin', 'jubinpolackal@gmail.com', '9022932911');
+
+

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark form-inline" role="navigation">
+  <div class="container-fluid">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+    <img class ="icon-image" src="../../../assets/img/holy_family.jpg">
+  <a class="navbar-brand" href="#">Holy Family<br>Syro Malabar Catholic Mission</a>
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#" routerLink="/">Home</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#" routerLink="/register">Register</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" routerLink="/login">Login</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+          <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
+          <li class="dropdown order-1">
+              <button type="button" id="adminDropDownMenu" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Admin<span class="caret"></span></button>
+              <ul class="dropdown-menu dropdown-menu-right mt-1">
+                <li class="p-3">
+                  <app-login></app-login>
+                  </li>
+              </ul>
+          </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
