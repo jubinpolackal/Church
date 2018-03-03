@@ -13,28 +13,34 @@ var routesProtected = require('./routes/routes-protected');
 const app = express();
 
 // Parsers
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false}));
 
 // Angular DIST output folder
 app.use(express.static(path.join(__dirname, 'dist')));
 
 // Send all other requests to the Angular app
-app.get('*', (req, res) => {
+/*app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});*/
+
+//Unprotected routes
+app.get('/', (req, res)=>{
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
-//Unprotected routes
-app.use('/admin-login', publicRoutes);
+app.use('/public', publicRoutes);
 
 //Protected routes
 //TODO:
 
 //Authenticate using json webtoken for protected routes
 function isAuthenticated(req, res, next){
-  var token = req.body.token || 
+  var token = req.body.token ||
   req.query.token ||
-  req.headers['x-access-token'] || 
+  req.headers['x-access-token'] ||
   req.headers['authorization'];
 }
 

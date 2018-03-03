@@ -13,8 +13,16 @@ config.server = {
 config.db = {
     user: 'root',
     host: '127.0.0.1',
-    //password: '',
+    password: '',
     db: 'church'
+};
+
+//Response structure for admin login
+config.adminResponse = {
+  status: 200,
+  token: '',
+  userName: '',
+  error:''
 };
 
 //Secret key for json web token

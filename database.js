@@ -3,18 +3,29 @@ var config = require('./config');
 var client = new SQLClient(config.db);
 
 var database = {
-  adminLogin:function(userName, password){
+  adminLogin:function(userName, password, success, error) {
 
-    var prep = client.prepare('select * from users where ')
-    client.query('select * from users where name=?', ['Admin'] , (err, rows)=>{
-      if (err){
-        console.log(err);
-      }else{
-        console.dir(rows);
-      }
-    });
-    client.end();
+    var prep = client.prepare('select * from users where userName = :userName AND password = :password');
+    try{
+      client.query(prep({userName: userName, password: password}) , (err, rows)=>{
+        if (err){
+          console.log('ERROR: '+err);
+          error(err);
+        }else{
+          if (rows.length > 0){
+            success(rows);
+          }else{
+            error(new Error('Invalid credentials'));
+          }
+          return true;
+        }
+      });
+      client.end();
+    }catch(e){
+      console.log(e);
+    }
   },
+
   memberLogin:function(name, password){
 
   }
